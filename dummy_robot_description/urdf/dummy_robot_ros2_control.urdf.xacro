@@ -31,6 +31,10 @@
                 <command_interface name="emo_pressed_cmd"/>
                 <state_interface name="emo_state"/>
             </gpio>
+
+            <gpio name="robot_system">
+                <state_interface name="initialized"/>
+            </gpio>
         </ros2_control>
     </xacro:macro>
 </robot>

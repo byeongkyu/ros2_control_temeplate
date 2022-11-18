@@ -21,6 +21,7 @@ namespace dummy_robot_controllers
     enum StateInterfaces
     {
         EMO_STATE = 0u,
+        ROBOT_INITIALIZED = 1,
     };
 
     class GPIOController : public controller_interface::ControllerInterface
@@ -39,7 +40,9 @@ namespace dummy_robot_controllers
 
         private:
             std_msgs::msg::Bool emo_state_;
+            std_msgs::msg::Bool robot_initialized_;
             std::shared_ptr<rclcpp::Publisher<std_msgs::msg::Bool>> pub_emo_state_;
+            std::shared_ptr<rclcpp::Publisher<std_msgs::msg::Bool>> pub_robot_init_state_;
             rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr sub_emo_pressed_;
 
             static constexpr double ASYNC_WAITING = 2.0;

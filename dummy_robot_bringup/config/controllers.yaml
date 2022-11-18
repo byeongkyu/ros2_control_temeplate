@@ -8,7 +8,7 @@ controller_manager:
     base_controller:
       type: diff_drive_controller/DiffDriveController
 
-    emo_controller:
+    io_status_controller:
       type: dummy_robot_controllers/GPIOController
 
 base_controller:

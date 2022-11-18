@@ -20,6 +20,7 @@ namespace dummy_robot_hardware
         }
 
         // Initialize internal variables
+        robot_is_initialized_ = 0;
         emo_state_ = 0;
         emo_pressed_cmd_ = 0;
 
@@ -96,6 +97,7 @@ namespace dummy_robot_hardware
         }
 
         state_interfaces.emplace_back(hardware_interface::StateInterface("emergency", "emo_state", &emo_state_));
+        state_interfaces.emplace_back(hardware_interface::StateInterface("robot_system", "initialized", &robot_is_initialized_));
         return state_interfaces;
     }
 
@@ -164,17 +166,17 @@ namespace dummy_robot_hardware
     hardware_interface::return_type DummyRobotSystemHardware::write(const rclcpp::Time & /*time*/, const rclcpp::Duration & /*period*/)
     {
         // Write to hardware from command variables.
-
-        std::cout << "emo_pressed_cmd_: " << emo_pressed_cmd_ << std::endl;
-        std::cout << "emo_state_: " << emo_state_ << std::endl;
-
         if(emo_state_)
         {
+            robot_is_initialized_ = 0.0;
+
             hw_commands_[0] = -1.0;
             hw_commands_[1] = -1.0;
         }
         else
         {
+            robot_is_initialized_ = 1.0;
+
             hw_commands_[0] = 0.0;
             hw_commands_[1] = 0.0;
         }

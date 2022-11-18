@@ -50,6 +50,7 @@ class DummyRobotSystemHardware : public hardware_interface::SystemInterface
         std::vector<double> hw_positions_;
         std::vector<double> hw_velocities_;
 
+        double robot_is_initialized_;
         double emo_state_;
         double emo_pressed_cmd_;
 };

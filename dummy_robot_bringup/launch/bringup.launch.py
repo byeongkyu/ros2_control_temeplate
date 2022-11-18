@@ -61,15 +61,15 @@ def generate_launch_description():
         output='screen'
     )
 
-    load_emo_controller = ExecuteProcess(
+    load_io_status_controller = ExecuteProcess(
         cmd=['ros2', 'control', 'load_controller', '--set-state', 'active',
-                'emo_controller'],
+                'io_status_controller'],
         output='screen'
     )
 
-    ld.add_action(upload_robot)
+    # ld.add_action(upload_robot)
     ld.add_action(control_node)
     ld.add_action(load_joint_state_broadcaster)
     ld.add_action(load_base_controller)
-    ld.add_action(load_emo_controller)
+    ld.add_action(load_io_status_controller)
     return ld
