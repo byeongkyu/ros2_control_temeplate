@@ -1,0 +1,7 @@
+<library path="dummy_robot_controllers">
+    <class name="dummy_robot_controllers/GPIOController" type="dummy_robot_controllers::GPIOController" base_class_type="controller_interface::ControllerInterface">
+        <description>
+            This controller publishes the common command.
+        </description>
+    </class>
+</library>

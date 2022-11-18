@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="dummy_robot">
+    <xacro:include filename="$(find dummy_robot_description)/urdf/dummy_robot.urdf.xacro"/>
+    <xacro:include filename="$(find dummy_robot_description)/urdf/dummy_robot_ros2_control.urdf.xacro"/>
+
+    <xacro:insert_robot prefix=""/>
+    <xacro:insert_ros2_control name="dummy_robot_system"/>
+</robot>

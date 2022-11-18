@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="insert_ros2_control" params="name">
+        <ros2_control name="${name}" type="system">
+            <hardware>
+                <plugin>dummy_robot_hardware/DummyRobotSystemHardware</plugin>
+                <!-- <param name="can_device">0x052</param> -->
+            </hardware>
+
+            <joint name="l_wheel_joint">
+                <command_interface name="velocity">
+                    <param name="min">-20.0</param>
+                    <param name="max">20.0</param>
+                </command_interface>
+
+                <state_interface name="position"/>
+                <state_interface name="velocity"/>
+            </joint>
+
+            <joint name="r_wheel_joint">
+                <command_interface name="velocity">
+                    <param name="min">-20.0</param>
+                    <param name="max">20.0</param>
+                </command_interface>
+
+                <state_interface name="position"/>
+                <state_interface name="velocity"/>
+            </joint>
+
+            <gpio name="emergency">
+                <command_interface name="emo_pressed_cmd"/>
+                <state_interface name="emo_state"/>
+            </gpio>
+        </ros2_control>
+    </xacro:macro>
+</robot>

@@ -1,0 +1,9 @@
+<library path="dummy_robot_hardware">
+    <class name="dummy_robot_hardware/DummyRobotSystemHardware"
+            type="dummy_robot_hardware::DummyRobotSystemHardware"
+            base_class_type="hardware_interface::SystemInterface">
+        <description>
+            The ros2_control DummyRobotSystemHardware.
+        </description>
+    </class>
+</library>
